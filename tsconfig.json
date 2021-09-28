@@ -11,6 +11,12 @@
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
+    "paths": {
+      "ngx-google-drive-picker": [
+        "dist/ngx-google-drive-picker/ngx-google-drive-picker",
+        "dist/ngx-google-drive-picker"
+      ]
+    },
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,

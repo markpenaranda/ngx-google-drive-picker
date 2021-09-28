@@ -1,27 +1,74 @@
-# LibraryWorkspace
+# ngx-google-drive-picker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
+> Library for using google drive picker angular
 
-## Development server
+## How to use
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+in `app.module.ts`
 
-## Code scaffolding
+```
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    // Import NgxGoogleDrivePickerModule and input clientId
+    NgxGoogleDrivePickerModule.forRoot({
+      clientId: 'YOUR_CLIENT_ID_HERE'
+    })
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
 
-## Running unit tests
+## Use service 
+`*.component.ts`
+```
+constructor(private googleDriveService: NgxGoogleDriveService) {}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Open with an already generated token
+```
+// googleDriveService.openWithToken(token, (file: File) => {
+  // callback method onSelect
+  // 
+})
+```
 
-## Running end-to-end tests
+Open with no token
+```
+// googleDriveService.open((file: File) => {
+  // callback method onSelect
+  // 
+})
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+***On Select Callback***
+> on select callback returns a `File` that you can consume
 
-## Further help
+```
+export interface File {
+  fileId: string
+  name: string
+  url: string
+  sizeBytes: number
+  type: string
+  lastEditedAtUTC: number
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Use selector component
+
+```
+<ngx-google-drive-picker 
+buttonLabel = "Select File"
+(onSelect)="triggerOnSelectFile"
+>
+```
