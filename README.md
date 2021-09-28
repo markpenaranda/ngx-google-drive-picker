@@ -31,7 +31,7 @@ export class AppModule { }
 
 Open with an already generated token
 ```
-googleDriveService.openWithToken(token, (file: File) => {
+googleDriveService.openPickerWithToken(token, (file: File) => {
   // callback method onSelect
   // 
 })
@@ -39,7 +39,7 @@ googleDriveService.openWithToken(token, (file: File) => {
 
 Open with no token
 ```
-googleDriveService.open((file: File) => {
+googleDriveService.openPicker((file: File) => {
   // callback method onSelect
   // 
 })
