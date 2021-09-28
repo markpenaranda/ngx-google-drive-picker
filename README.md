@@ -28,14 +28,10 @@ export class AppModule { }
 ```
 
 ## Use service 
-`*.component.ts`
-```
-constructor(private googleDriveService: NgxGoogleDriveService) {}
-```
 
 Open with an already generated token
 ```
-// googleDriveService.openWithToken(token, (file: File) => {
+googleDriveService.openWithToken(token, (file: File) => {
   // callback method onSelect
   // 
 })
@@ -43,7 +39,7 @@ Open with an already generated token
 
 Open with no token
 ```
-// googleDriveService.open((file: File) => {
+googleDriveService.open((file: File) => {
   // callback method onSelect
   // 
 })
